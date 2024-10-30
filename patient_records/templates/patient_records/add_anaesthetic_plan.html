@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Anaesthetic Plan</title>
+</head>
+<body>
+    <h1>Add Anaesthetic Plan for {{ patient.name }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="anaesthetic_technique">Anaesthetic Technique:</label>
+        <input type="text" id="anaesthetic_technique" name="anaesthetic_technique" required><br>
+
+        <label for="anticipated_difficulties">Anticipated Difficulties:</label>
+        <textarea id="anticipated_difficulties" name="anticipated_difficulties"></textarea><br>
+
+        <label for="pre_op_instructions">Pre-Op Instructions:</label>
+        <textarea id="pre_op_instructions" name="pre_op_instructions"></textarea><br>
+
+        <label for="post_op">Post-Op Plan:</label>
+        <textarea id="post_op" name="post_op"></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

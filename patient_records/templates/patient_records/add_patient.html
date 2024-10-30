@@ -1,0 +1,43 @@
+<!-- patient_records/templates/patient_records/add_patient.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Patient</title>
+</head>
+<body>
+    <h1>Add a New Patient</h1>
+    
+    <form method="POST" action="{% url 'add_patient' %}">
+        {% csrf_token %}
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br>
+
+        <label for="medical_history">Medical History:</label>
+        <textarea id="medical_history" name="medical_history"></textarea><br><br>
+
+        <label for="surgical_history">Surgical History:</label>
+        <textarea id="surgical_history" name="surgical_history"></textarea><br><br>
+
+        <label for="social_history">Social History:</label>
+        <textarea id="social_history" name="social_history"></textarea><br><br>
+
+        <label for="presenting_illness">Presenting Illness:</label>
+        <textarea id="presenting_illness" name="presenting_illness"></textarea><br><br>
+
+        <button type="submit">Add Patient</button>
+    </form>
+</body>
+</html>
+
+

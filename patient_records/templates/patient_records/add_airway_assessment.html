@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if created %}Add{% else %}Update{% endif %} Airway Assessment</title>
+</head>
+<body>
+    <h1>{% if created %}Add{% else %}Update{% endif %} Airway Assessment for {{ patient.name }}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Check if form instance is provided and render dynamically -->
+        {% if form %}
+            {{ form.as_p }}
+        {% else %}
+            <!-- Use manual fields if not using Django form instance -->
+            <label for="mallampati_score">Mallampati Score:</label>
+            <input type="text" id="mallampati_score" name="mallampati_score"><br>
+
+            <label for="neck_mobility">Neck Mobility:</label>
+            <input type="text" id="neck_mobility" name="neck_mobility"><br>
+
+            <label for="dental_conditions">Dental Conditions:</label>
+            <textarea id="dental_conditions" name="dental_conditions"></textarea><br>
+
+            <label for="other_notes">Other Notes:</label>
+            <textarea id="other_notes" name="other_notes"></textarea><br>
+        {% endif %}
+
+        <!-- Submit button with conditional Add/Update label -->
+        <button type="submit">{% if created %}Add{% else %}Update{% endif %} Assessment</button>
+    </form>
+</body>
+</html>

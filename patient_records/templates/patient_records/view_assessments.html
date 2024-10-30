@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Preoperative Assessment</title>
+    <style>
+        /* Basic CSS for structured table layout */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .section {
+            margin: 20px 0;
+            border: 1px solid #333;
+            padding: 10px;
+        }
+        .section-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            background-color: #e0e0e0;
+            padding: 5px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preoperative Assessment for {{ patient.name }}</h1>
+
+    <!-- Allergies Section -->
+    <div class="section">
+        <div class="section-title">Allergies</div>
+        <table>
+            <tr>
+                <th>Allergy</th>
+                <th>Notes</th>
+            </tr>
+            {% for assessment in assessments %}
+            <tr>
+                <td>{{ assessment.allergies }}</td>
+                <td>{{ assessment.notes }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="2">No known allergies</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Medical History Section -->
+    <div class="section">
+        <div class="section-title">Medical History</div>
+        <table>
+            <tr>
+                <td>{{ patient.medical_history }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Surgical History Section -->
+    <div class="section">
+        <div class="section-title">Surgical History</div>
+        <table>
+            <tr>
+                <td>{{ patient.surgical_history }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Social History Section -->
+    <div class="section">
+        <div class="section-title">Social History</div>
+        <table>
+            <tr>
+                <td>{{ patient.social_history }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Presenting Illness Section -->
+    <div class="section">
+        <div class="section-title">Presenting Illness</div>
+        <table>
+            <tr>
+                <td>{{ patient.presenting_illness }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Current Medications Section -->
+    <div class="section">
+        <div class="section-title">Current Medications</div>
+        <table>
+            <tr>
+                <th>Medication</th>
+                <th>Dosage</th>
+                <th>Frequency</th>
+            </tr>
+            {% for medication in medications %}
+            <tr>
+                <td>{{ medication.name }}</td>
+                <td>{{ medication.dosage }}</td>
+                <td>{{ medication.frequency }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="3">No current medications</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Airway Assessment Section -->
+    <div class="section">
+        <div class="section-title">Airway Assessment</div>
+        <table>
+            <tr>
+                <th>Mallampati Score</th>
+                <th>Neck Mobility</th>
+                <th>Dental Conditions</th>
+                <th>Other Notes</th>
+            </tr>
+            {% for airway in airway_assessments %}
+            <tr>
+                <td>{{ airway.mallampati_score }}</td>
+                <td>{{ airway.neck_mobility }}</td>
+                <td>{{ airway.dental_conditions }}</td>
+                <td>{{ airway.other_notes }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No airway assessment available</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Investigations Section -->
+    <div class="section">
+        <div class="section-title">Investigations</div>
+        <table>
+            <tr>
+                <th>Test Name</th>
+                <th>Result</th>
+                <th>Date</th>
+            </tr>
+            {% for investigation in investigations %}
+            <tr>
+                <td>{{ investigation.test_name }}</td>
+                <td>{{ investigation.result }}</td>
+                <td>{{ investigation.date }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="3">No investigations recorded</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Anaesthetic Plan Section -->
+    <div class="section">
+        <div class="section-title">Anaesthetic Plan</div>
+        <table>
+            <tr>
+                <td><strong>Technique:</strong> {{ anaesthetic_plan.anaesthetic_technique }}</td>
+            </tr>
+            <tr>
+                <td><strong>Anticipated Difficulties:</strong> {{ anaesthetic_plan.anticipated_difficulties }}</td>
+            </tr>
+            <tr>
+                <td><strong>Pre-Op Instructions:</strong> {{ anaesthetic_plan.pre_op_instructions }}</td>
+            </tr>
+            <tr>
+                <td><strong>Post-Op:</strong> {{ anaesthetic_plan.post_op }}</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

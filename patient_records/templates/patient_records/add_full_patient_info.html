@@ -1,0 +1,103 @@
+<!-- patient_records/templates/patient_records/add_full_patient_info.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Full Patient Information</title>
+</head>
+<body>
+    <h1>Add Full Patient Information</h1>
+    <form method="POST" action="{% url 'add_full_patient_info' %}">
+        {% csrf_token %}
+
+        <!-- Patient Details -->
+        <h2>Patient Details</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+
+        <label for="medical_history">Medical History:</label>
+        <textarea id="medical_history" name="medical_history"></textarea><br>
+
+        <label for="surgical_history">Surgical History:</label>
+        <textarea id="surgical_history" name="surgical_history"></textarea><br>
+
+        <label for="social_history">Social History:</label>
+        <textarea id="social_history" name="social_history"></textarea><br>
+
+        <label for="presenting_illness">Presenting Illness:</label>
+        <textarea id="presenting_illness" name="presenting_illness"></textarea><br>
+
+        <!-- Assessment Details -->
+        <h2>Assessment Details</h2>
+        <label for="asa_classification">ASA Classification:</label>
+        <input type="text" id="asa_classification" name="asa_classification"><br>
+
+        <label for="allergies">Allergies:</label>
+        <textarea id="allergies" name="allergies"></textarea><br>
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes"></textarea><br>
+
+        <!-- Airway Assessment Details -->
+        <h2>Airway Assessment</h2>
+        <label for="mallampati_score">Mallampati Score:</label>
+        <input type="text" id="mallampati_score" name="mallampati_score"><br>
+
+        <label for="neck_mobility">Neck Mobility:</label>
+        <input type="text" id="neck_mobility" name="neck_mobility"><br>
+
+        <label for="dental_conditions">Dental Conditions:</label>
+        <textarea id="dental_conditions" name="dental_conditions"></textarea><br>
+
+        <label for="other_notes">Other Notes:</label>
+        <textarea id="other_notes" name="other_notes"></textarea><br>
+
+        <!-- Investigations Details -->
+        <h2>Investigations</h2>
+        <label for="test_name">Test Name:</label>
+        <input type="text" id="test_name" name="test_name"><br>
+
+        <label for="result">Result:</label>
+        <textarea id="result" name="result"></textarea><br>
+
+        <label for="test_date">Date of Test:</label>
+        <input type="date" id="test_date" name="test_date"><br>
+
+        <!-- Medications Details -->
+        <h2>Medications</h2>
+        <label for="medication_name">Medication Name:</label>
+        <input type="text" id="medication_name" name="medication_name"><br>
+
+        <label for="dosage">Dosage:</label>
+        <input type="text" id="dosage" name="dosage"><br>
+
+        <label for="frequency">Frequency:</label>
+        <input type="text" id="frequency" name="frequency"><br>
+
+        <!-- Anaesthetic Plan Details -->
+        <h2>Anaesthetic Plan</h2>
+        <label for="anaesthetic_technique">Anaesthetic Technique:</label>
+        <textarea id="anaesthetic_technique" name="anaesthetic_technique"></textarea><br>
+
+        <label for="anticipated_difficulties">Anticipated Difficulties:</label>
+        <textarea id="anticipated_difficulties" name="anticipated_difficulties"></textarea><br>
+
+        <label for="pre_op_instructions">Pre-Op Instructions:</label>
+        <textarea id="pre_op_instructions" name="pre_op_instructions"></textarea><br>
+
+        <label for="post_op">Post-Op:</label>
+        <textarea id="post_op" name="post_op"></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

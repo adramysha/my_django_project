@@ -1,0 +1,28 @@
+<!-- patient_records/templates/patient_records/add_assessment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Assessment</title>
+</head>
+<body>
+    <h1>Add Assessment for Patient {{ patient.name }}</h1>
+
+    <form method="POST" action="{% url 'add_assessment' patient.id %}">
+        {% csrf_token %}
+        
+        <label for="asa_classification">ASA Classification:</label>
+        <input type="text" id="asa_classification" name="asa_classification" required><br><br>
+
+        <label for="allergies">Allergies:</label>
+        <input type="text" id="allergies" name="allergies"><br><br>
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes"></textarea><br><br>
+
+        <button type="submit">Add Assessment</button>
+    </form>
+
+    <a href="{% url 'view_patient_assessments' patient_id=patient.id %}">View All Assessments for this Patient</a>
+</body>
+</html>

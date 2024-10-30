@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Investigation</title>
+</head>
+<body>
+    <h1>Add Investigation for {{ patient.name }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="test_name">Test Name:</label>
+        <input type="text" id="test_name" name="test_name" required><br>
+
+        <label for="result">Result:</label>
+        <textarea id="result" name="result"></textarea><br>
+
+        <label for="test_date">Test Date:</label>
+        <input type="date" id="test_date" name="test_date"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
